@@ -17,10 +17,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class HellobootApplication {
+	스프링 컨테이너에 2개의 빈을 띄우고 둘 사이에 의존관계를 만드는것까지 컨테이너가 제공하는 DI이용 해봄
 
 	public static void main(String[] args) {
 		GenericApplicationContext applicationContext = new GenericApplicationContext();
 		applicationContext.registerBean(HelloController.class);
+		applicationContext.registerBean(SimpleHelloService.class);
 		applicationContext.refresh();
 
 		ServletWebServerFactory serverFactory = new TomcatServletWebServerFactory();
